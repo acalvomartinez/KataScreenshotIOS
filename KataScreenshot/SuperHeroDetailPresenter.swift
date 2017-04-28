@@ -24,8 +24,19 @@ class SuperHeroDetailPresenter: BothamPresenter {
     func viewDidLoad() {
         ui?.title = superHeroName
         ui?.showLoader()
-        getSuperHeroByName.execute(superHeroName) { superHero in
+        getSuperHeroByName.execute(superHeroName) { result in
             self.ui?.hideLoader()
+            
+            if let error = result.error {
+                self.ui?.show(error: error)
+                return
+            }
+        
+            guard let superHero = result.value else {
+                self.ui?.show(error: .itemNotFound)
+                return
+            }
+            
             self.ui?.show(superHero: superHero)
         }
     }
@@ -35,6 +46,6 @@ class SuperHeroDetailPresenter: BothamPresenter {
 protocol SuperHeroDetailUI: BothamUI, BothamLoadingUI {
 
     var title: String? {get set}
-    func show(superHero: SuperHero?)
-
+    func show(superHero: SuperHero)
+    func show(error: SuperHeroesError)
 }

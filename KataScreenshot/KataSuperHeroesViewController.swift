@@ -16,5 +16,4 @@ class KataSuperHeroesViewController: BothamViewController, BothamLoadingViewCont
         loadingView.color = UIColor.loadingColor
         return loadingView
     }()
-
 }

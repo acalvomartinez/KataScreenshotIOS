@@ -18,11 +18,9 @@ class SuperHeroDetailViewController: KataSuperHeroesViewController, SuperHeroDet
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var errorCaseView: UILabel!
 
-    func show(superHero: SuperHero?) {
-        guard let superHero = superHero else {
-            return
-        }
+    func show(superHero: SuperHero) {
         userLabel.text = superHero.name
         userLabel.accessibilityLabel = "Name: \(superHero.name)"
         userLabel.isHidden = false
@@ -31,5 +29,10 @@ class SuperHeroDetailViewController: KataSuperHeroesViewController, SuperHeroDet
         descriptionLabel.isHidden = false
         photoImageView.sd_setImage(with: superHero.photo as URL!)
         avengersBadgeImageView.isHidden = !superHero.isAvenger
+    }
+    
+    func show(error: SuperHeroesError) {
+        errorCaseView.text = error.message
+        errorCaseView.isHidden = false
     }
 }

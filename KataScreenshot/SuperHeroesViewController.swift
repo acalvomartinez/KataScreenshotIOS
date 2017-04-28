@@ -10,14 +10,17 @@ import UIKit
 import BothamUI
 
 class SuperHeroesViewController: KataSuperHeroesViewController, BothamTableViewController, SuperHeroesUI {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyCaseView: UILabel!
+    @IBOutlet weak var errorCaseView: UILabel!
 
     var dataSource: BothamTableViewDataSource<SuperHero, SuperHeroTableViewCell>!
     var delegate: UITableViewDelegate!
 
     override func viewDidLoad() {
+        errorCaseView.isHidden = true
+        
         tableView.dataSource = dataSource
         tableView.delegate = delegate
         tableView.tableFooterView = UIView()
@@ -33,6 +36,15 @@ class SuperHeroesViewController: KataSuperHeroesViewController, BothamTableViewC
     func showEmptyCase() {
         emptyCaseView.isHidden = false
     }
+    
+    
+    func show(error: SuperHeroesError) {
+        errorCaseView.text = error.message
+        errorCaseView.isHidden = false
+    }
+    
+
+    
 
     func openSuperHeroDetailScreen(_ superHeroDetailViewController: UIViewController) {
         navigationController?.push(viewController: superHeroDetailViewController)

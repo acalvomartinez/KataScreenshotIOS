@@ -21,13 +21,20 @@ class SuperHeroesPresenter: BothamPresenter, BothamNavigationPresenter {
 
     func viewDidLoad() {
         ui?.showLoader()
-        getSuperHeroes.execute { superHeroes in
+        getSuperHeroes.execute { result in
             self.ui?.hideLoader()
-            if superHeroes.isEmpty {
-                self.ui?.showEmptyCase()
-            } else {
-                self.ui?.show(items: superHeroes)
+            
+            if let error = result.error {
+                self.ui?.show(error: error)
+                return
             }
+            
+            guard let superHeroes = result.value else {
+                self.ui?.show(error: .itemNotFound)
+                return
+            }
+            
+            self.ui?.show(items: superHeroes)
         }
     }
 
@@ -41,6 +48,7 @@ protocol SuperHeroesUI: BothamUI, BothamLoadingUI {
 
     func showEmptyCase()
     func show(items: [SuperHero])
+    func show(error: SuperHeroesError)
     func openSuperHeroDetailScreen(_ superHeroDetailViewController: UIViewController)
 
 }
