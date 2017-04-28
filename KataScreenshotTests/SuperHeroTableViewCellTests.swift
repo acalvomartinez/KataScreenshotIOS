@@ -11,6 +11,22 @@ import XCTest
 @testable import KataScreenshot
 
 class SuperHeroTableViewCellTests: ScreenshotTest {
+    
+    func testShowsARegularSuperHero() {
+        let cell = givenASuperHeroTableViewCell()
+        cell.configure(forItem: SuperHeroMother.givenASuperHero())
+        
+        verify(view: cell)
+    }
+    
+    func testShowsSuperHeroWithALongName() {
+        let cell = givenASuperHeroTableViewCell()
+        cell.configure(forItem: SuperHeroMother.givenASuperHeroWithALongName())
+        
+        verify(view: cell)
+    }
+    
+    // MARK: - Helpers
 
     private func givenASuperHeroTableViewCell() -> SuperHeroTableViewCell {
         return UINib(nibName: "SuperHeroTableViewCell", bundle: Bundle.main).instantiate(withOwner: self, options: nil)[0] as! SuperHeroTableViewCell
