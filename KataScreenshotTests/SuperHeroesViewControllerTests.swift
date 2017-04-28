@@ -20,6 +20,8 @@ class SuperHeroesViewControllerTests: ScreenshotTest {
 
         verify(viewController: viewController)
     }
+    
+    // MARK - Helpers
 
     fileprivate func givenThereAreSomeAvengers() -> [SuperHero] {
         return givenThereAreSomeSuperHeroes(avengers: true)
