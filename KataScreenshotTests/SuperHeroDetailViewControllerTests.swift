@@ -60,6 +60,14 @@ class SuperHeroDetailViewControllerTests: ScreenshotTest {
         
         verify(viewController: viewController)
     }
+    
+    func testsShowsError() {
+        repository.error = SuperHeroesError.networkError
+        
+        let viewController = getSuperHeroDetailViewController("")
+        
+        verify(viewController: viewController)
+    }
 
     // MARK: Helpers
 
