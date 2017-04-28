@@ -28,9 +28,39 @@ class SuperHeroDetailViewControllerTests: ScreenshotTest {
 
         verify(viewController: viewController)
     }
+    
+    func testShowsSuperHeroWithLongName() {
+        let superHero = givenASuperHeroWithLongName()
+        
+        let viewController = getSuperHeroDetailViewController(superHero.name)
+        
+        verify(viewController: viewController)
+    }
 
-    func givenASuperHero(isAvenger: Bool) -> SuperHero {
+    func testShowsSuperHeroWithLongDescription() {
+        let superHero = givenASuperHeroWithLongDescription()
+        
+        let viewController = getSuperHeroDetailViewController(superHero.name)
+        
+        verify(viewController: viewController)
+    }
+
+    // MARK: Helpers
+
+    fileprivate func givenASuperHero(isAvenger: Bool) -> SuperHero {
         let superHero = SuperHeroMother.givenASuperHero(isAvenger: isAvenger)
+        repository.superHeroes = [superHero]
+        return superHero
+    }
+    
+    fileprivate func givenASuperHeroWithLongName() -> SuperHero {
+        let superHero = SuperHeroMother.givenASuperHeroWithALongName()
+        repository.superHeroes = [superHero]
+        return superHero
+    }
+    
+    fileprivate func givenASuperHeroWithLongDescription() -> SuperHero {
+        let superHero = SuperHeroMother.givenASuperHeroWithALongDescription()
         repository.superHeroes = [superHero]
         return superHero
     }

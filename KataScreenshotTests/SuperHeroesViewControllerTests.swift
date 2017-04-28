@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KIF
 @testable import KataScreenshot
 
 class SuperHeroesViewControllerTests: ScreenshotTest {
@@ -38,6 +39,23 @@ class SuperHeroesViewControllerTests: ScreenshotTest {
     }
     
     func testShowsTenSuperHeroes() {
+        _ = givenThereAreSomeSuperHeroes(10, avengers: false)
+        
+        let viewController = getSuperHeroDetailViewController()
+        
+        verify(viewController: viewController)
+        
+    }
+    
+    func testShowsTenSuperHeroesAreAvengers() {
+        _ = givenThereAreSomeSuperHeroes(10, avengers: true)
+        
+        let viewController = getSuperHeroDetailViewController()
+        
+        verify(viewController: viewController)
+    }
+    
+    func testShowsTenSuperHeroesAreNOtAvengers() {
         _ = givenThereAreSomeSuperHeroes(10, avengers: false)
         
         let viewController = getSuperHeroDetailViewController()

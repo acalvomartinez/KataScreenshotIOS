@@ -30,6 +30,7 @@
 		49CDFED91E2400830019961D /* SuperHeroTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CDFED81E2400830019961D /* SuperHeroTableViewCell.xib */; };
 		49CDFEDD1E2402840019961D /* SuperHeroTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDFEDC1E2402840019961D /* SuperHeroTableViewCellTests.swift */; };
 		49CDFEDF1E2403CB0019961D /* SuperHeroMother.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDFEDE1E2403CB0019961D /* SuperHeroMother.swift */; };
+		E2B904A11EB389F000558628 /* SuperHeroDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B904A01EB389F000558628 /* SuperHeroDetailViewControllerTests.swift */; };
 		FC64759AD67A8E0D07F9DF6D /* Pods_KataScreenshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5509D4971E317467BCBF6C11 /* Pods_KataScreenshotTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		4C52E23864CDE6FC17800AB6 /* Pods_KataScreenshot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KataScreenshot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5509D4971E317467BCBF6C11 /* Pods_KataScreenshotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KataScreenshotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15EB0AC3D833AA2F63CBCB6 /* Pods-KataScreenshot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KataScreenshot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KataScreenshot/Pods-KataScreenshot.debug.xcconfig"; sourceTree = "<group>"; };
+		E2B904A01EB389F000558628 /* SuperHeroDetailViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperHeroDetailViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		4915B3B51E0C26340056AE6A /* KataScreenshotTests */ = {
 			isa = PBXGroup;
 			children = (
+				E2B904A21EB389F500558628 /* Super Hero */,
 				4915B3E21E0C29020056AE6A /* Super Heroes */,
 				4915B3E71E0C291F0056AE6A /* Test Doubles */,
 				4915B3B81E0C26340056AE6A /* Info.plist */,
@@ -259,6 +262,14 @@
 				5509D4971E317467BCBF6C11 /* Pods_KataScreenshotTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2B904A21EB389F500558628 /* Super Hero */ = {
+			isa = PBXGroup;
+			children = (
+				E2B904A01EB389F000558628 /* SuperHeroDetailViewControllerTests.swift */,
+			);
+			name = "Super Hero";
 			sourceTree = "<group>";
 		};
 		EFD86C00578ADF6A89B1818B /* Pods */ = {
@@ -498,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49CDFEDF1E2403CB0019961D /* SuperHeroMother.swift in Sources */,
+				E2B904A11EB389F000558628 /* SuperHeroDetailViewControllerTests.swift in Sources */,
 				4915B3E61E0C29190056AE6A /* SuperHeroesViewControllerTests.swift in Sources */,
 				49CDFEDD1E2402840019961D /* SuperHeroTableViewCellTests.swift in Sources */,
 				4915B3F21E0C2D130056AE6A /* ScreenshotTest.swift in Sources */,
