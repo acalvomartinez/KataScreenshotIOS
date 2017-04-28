@@ -30,7 +30,15 @@ class SuperHeroDetailViewControllerTests: ScreenshotTest {
     }
     
     func testShowsSuperHeroWithLongName() {
-        let superHero = givenASuperHeroWithLongName()
+        let superHero = givenASuperHero(name: "Very very long name", isAvenger: false)
+        
+        let viewController = getSuperHeroDetailViewController(superHero.name)
+        
+        verify(viewController: viewController)
+    }
+    
+    func testShowsSuperHeroWithEmptyName() {
+        let superHero = givenASuperHero(name: "", isAvenger: false)
         
         let viewController = getSuperHeroDetailViewController(superHero.name)
         
@@ -38,7 +46,15 @@ class SuperHeroDetailViewControllerTests: ScreenshotTest {
     }
 
     func testShowsSuperHeroWithLongDescription() {
-        let superHero = givenASuperHeroWithLongDescription()
+        let superHero = givenASuperHero(description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", isAvenger: false)
+        
+        let viewController = getSuperHeroDetailViewController(superHero.name)
+        
+        verify(viewController: viewController)
+    }
+    
+    func testShowsSuperHeroWithEmptyDescription() {
+        let superHero = givenASuperHero(description: "", isAvenger: false)
         
         let viewController = getSuperHeroDetailViewController(superHero.name)
         
@@ -47,20 +63,16 @@ class SuperHeroDetailViewControllerTests: ScreenshotTest {
 
     // MARK: Helpers
 
-    fileprivate func givenASuperHero(isAvenger: Bool) -> SuperHero {
-        let superHero = SuperHeroMother.givenASuperHero(isAvenger: isAvenger)
-        repository.superHeroes = [superHero]
-        return superHero
-    }
-    
-    fileprivate func givenASuperHeroWithLongName() -> SuperHero {
-        let superHero = SuperHeroMother.givenASuperHeroWithALongName()
-        repository.superHeroes = [superHero]
-        return superHero
-    }
-    
-    fileprivate func givenASuperHeroWithLongDescription() -> SuperHero {
-        let superHero = SuperHeroMother.givenASuperHeroWithALongDescription()
+    fileprivate func givenASuperHero(name: String = "Mr. Clean",
+                                     description: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                                     photo: String = "",
+                                     isAvenger: Bool) -> SuperHero {
+        let superHero = SuperHero(
+            name: name,
+            photo: URL(string: photo),
+            isAvenger: isAvenger,
+            description: description
+        )
         repository.superHeroes = [superHero]
         return superHero
     }
