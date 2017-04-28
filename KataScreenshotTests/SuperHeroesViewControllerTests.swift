@@ -21,6 +21,30 @@ class SuperHeroesViewControllerTests: ScreenshotTest {
         verify(viewController: viewController)
     }
     
+    func testShowsOnSuperHero() {
+        _ = givenThereAreSomeSuperHeroes(1, avengers: false)
+        
+        let viewController = getSuperHeroDetailViewController()
+        
+        verify(viewController: viewController)
+    }
+    
+    func testShowsTwoSuperHeroes() {
+        _ = givenThereAreSomeSuperHeroes(2, avengers: false)
+        
+        let viewController = getSuperHeroDetailViewController()
+        
+        verify(viewController: viewController)
+    }
+    
+    func testShowsTenSuperHeroes() {
+        _ = givenThereAreSomeSuperHeroes(10, avengers: false)
+        
+        let viewController = getSuperHeroDetailViewController()
+        
+        verify(viewController: viewController)
+    }
+    
     // MARK - Helpers
 
     fileprivate func givenThereAreSomeAvengers() -> [SuperHero] {
